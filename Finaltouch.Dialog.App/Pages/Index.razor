@@ -1,0 +1,85 @@
+﻿@page "/"
+
+<PageTitle>Generic Modal Template</PageTitle>
+
+<div class="btn-group" role="group" aria-label="Different Modals">
+    <button type="button" class="btn btn-primary" @onclick="async () => await NoHeader.Open()">
+        No Header
+    </button>
+    <button type="button" class="btn btn-secondary" @onclick="async () => await WithHeader.Open()">
+        With Header
+    </button>
+    <button type="button" class="btn btn-success" @onclick="async () => await NoFooter.Open()">
+        No Footer
+    </button>
+    <button type="button" class="btn btn-danger" @onclick="async() => await Scrollable.Open()">
+        Scrollable
+    </button>
+    <button type="button" class="btn btn-warning" @onclick="async () => await Zoom.Open()">
+        Use Zoom
+    </button>
+</div>
+
+<DialogTemplate @ref="NoHeader">
+    <Body>
+        <p>Modal Body Text</p>
+    </Body>
+    <Footer>
+        <button class="btn btn-primary" data-dismiss="modal" @onclick="async () => await NoHeader.Close()">
+            Close
+        </button>
+    </Footer>
+</DialogTemplate>
+
+<DialogTemplate @ref="WithHeader" Title="Modal Header">
+    <Header></Header>
+    <Body>
+        <p>Modal Body Text</p>
+    </Body>
+    <Footer>
+        <button class="btn btn-primary" data-dismiss="modal" @onclick="async () => await WithHeader.Close()">
+            Close
+        </button>
+    </Footer>
+</DialogTemplate>
+
+<DialogTemplate @ref="NoFooter" Title="Modal Header">
+    <Header></Header>
+    <Body>
+        <p>Modal Body Text</p>
+    </Body>
+</DialogTemplate>
+
+<DialogTemplate @ref="Zoom" UseZoom="true" Title="Modal Header">
+    <Header></Header>
+    <Body>
+        <p>Modal Body Text</p>
+    </Body>
+</DialogTemplate>
+
+<DialogTemplate @ref="Scrollable" Scrollable="true" Title="Modal Header">
+    <Header></Header>
+    <Body>
+        <p>
+            This is some placeholder content to show the scrolling behavior for modals.
+            Instead of repeating the text the modal, we use an inline style set a minimum height,
+            thereby extending the length of the overall modal and
+            demonstrating the overflow scrolling.
+            When content becomes longer than the height of the viewport,
+            scrolling will move the modal as needed.
+        </p>
+        <p dir="rtl">
+            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח. עמחליף קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק - וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי צש בליא, מנסוטו צמלח לביקו ננבי, צמוקו בלוקריה שיצמה ברורק.
+
+            לורם איפסום דולור סיט אמט, קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי קונדימנטום קורוס בליקרה, נונסטי קלובר בריקנה סטום, לפריקך תצטריק לרטי.
+
+            גולר מונפרר סוברט לורם שבצק יהול, לכנוץ בעריר גק ליץ, ושבעגט ליבם סולגק. בראיט ולחת צורק מונחף, בגורמי מגמש. תרבנך וסתעד לכנו סתשם השמה - לתכי מורגם בורק? לתיג ישבעס.
+
+        </p>
+    </Body>
+    <Footer>
+        <button class="btn btn-primary" data-dismiss="modal" @onclick="async () => await Scrollable.Close()">
+            Close
+        </button>
+    </Footer>
+</DialogTemplate>
