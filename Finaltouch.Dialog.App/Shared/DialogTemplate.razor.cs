@@ -10,8 +10,8 @@ namespace Finaltouch.Modal.App.Shared
     /// </remarks>
     public partial class DialogTemplate
     {
-        [Parameter]
-        public RenderFragment? Header { get; set; }
+        //[Parameter]
+        //public RenderFragment? Header { get; set; }
         [Parameter]
         public RenderFragment? Body { get; set; }
         [Parameter]
