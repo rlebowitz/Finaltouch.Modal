@@ -10,8 +10,6 @@ namespace Finaltouch.Modal.App.Shared
     /// </remarks>
     public partial class DialogTemplate
     {
-        //[Parameter]
-        //public RenderFragment? Header { get; set; }
         [Parameter]
         public RenderFragment? Body { get; set; }
         [Parameter]
@@ -27,7 +25,8 @@ namespace Finaltouch.Modal.App.Shared
         private string ModalClass { get; set; } = string.Empty;
         private string ModalZoom => UseZoom ? "modal-zoom" : string.Empty;
         private string ModalScroll => Scrollable ? "modal-dialog-scrollable" : string.Empty;
-        private string ModalCentered => Centered ? "modal-dialog-centered " : string.Empty;
+        private string ModalCentered => (Centered && !Scrollable) ? "modal-dialog-centered" : string.Empty;
+
         private Dictionary<string, object> AriaAttributes
         {
             get
